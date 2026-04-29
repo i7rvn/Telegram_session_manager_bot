@@ -2,6 +2,8 @@
 """
 Telegram Account Manager Bot – Full Featured (getUpdates)
 Supports: Import/Export ZIP, Check, Refresh, 2FA, Remove Devices, Reports, etc.
+
+GitHub: https://github.com/i7rvn
 """
 
 import asyncio, base64, hashlib, json, logging, os, sqlite3, io, zipfile, re
@@ -23,7 +25,7 @@ load_dotenv()
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 API_ID = os.getenv("API_ID")
 API_HASH = os.getenv("API_HASH")
-OWNER_ID = int(os.getenv("OWNER_ID", "0"))  # معرف المالك (أدمن وحيد)
+OWNER_ID = int(os.getenv("OWNER_ID", "0")) 
 API_URL = f"https://api.telegram.org/bot{BOT_TOKEN}"
 
 logging.basicConfig(
@@ -33,7 +35,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# ── دوال تقدير السنة والدولة ─────────────────────────────────
+
 COUNTRY_PREFIXES = {
     "93": ("🇦🇫", "Afghanistan"), "355": ("🇦🇱", "Albania"), "213": ("🇩🇿", "Algeria"),
     "1": ("🇺🇸/🇨🇦", "USA/Canada"), "44": ("🇬🇧", "UK"), "33": ("🇫🇷", "France"),
@@ -129,7 +131,7 @@ class DatabaseManager:
         db.commit()
         db.close()
 
-    # ── Sessions ──────────────────────────────────────────────
+
     def add_session(self, phone, session_data, session_type="telethon", api_id=None, api_hash=None, tfa_password=None):
         db = self.conn()
         db.execute('''
@@ -184,7 +186,7 @@ class DatabaseManager:
         n = db.execute("SELECT COUNT(*) FROM sessions").fetchone()[0]
         db.close(); return n
 
-    # ── Settings ──────────────────────────────────────────────
+
     def get_setting(self, key, default=None):
         db = self.conn()
         row = db.execute("SELECT value FROM settings WHERE key=?", (key,)).fetchone()
@@ -196,13 +198,13 @@ class DatabaseManager:
         db.execute("INSERT OR REPLACE INTO settings VALUES (?,?)", (key, value))
         db.commit(); db.close()
 
-    # ── Users (للأدمن فقط) ──────────────────────────────────
+
     def add_user(self, uid, username, first_name, last_name):
         db = self.conn()
         db.execute("INSERT OR IGNORE INTO users (user_id, username, first_name, last_name) VALUES (?,?,?,?)",
                    (uid, username, first_name, last_name))
         db.commit(); db.close()
-# ── مدير العمليات على تيليجرام (فحص، 2FA، إزالة أجهزة) ────
+
 class TelegramAccountManager:
     def __init__(self, db: DatabaseManager):
         self.db = db
@@ -266,7 +268,7 @@ class TelegramAccountManager:
         except Exception:
             return False
 
-# ── البوت الرئيسي ──────────────────────────────────────────
+
 class TelegramBot:
     def __init__(self):
         self.db = DatabaseManager()
@@ -276,7 +278,7 @@ class TelegramBot:
         self.session = None
         self.admin_id = OWNER_ID
 
-    # ── دوال API الأساسية ──────────────────────────────────
+
     async def send_msg(self, chat_id, text, reply_markup=None):
         data = {'chat_id': chat_id, 'text': text, 'parse_mode': 'HTML'}
         if reply_markup: data['reply_markup'] = json.dumps(reply_markup)
@@ -304,7 +306,7 @@ class TelegramBot:
                 return await resp2.read()
         return None
 
-    # ── القائمة الرئيسية ────────────────────────────────────
+
     def main_menu_keyboard(self):
         btn = lambda txt, cb: {'text': txt, 'callback_data': cb}
         return {'inline_keyboard': [
@@ -319,7 +321,7 @@ class TelegramBot:
     def simple_back(self, cb="back_main"):
         return {'inline_keyboard': [[{'text': '🔙 Back', 'callback_data': cb}]]}
 
-    # ── معالجة start ────────────────────────────────────────
+
     async def handle_start(self, msg):
         uid = msg['from']['id']
         if OWNER_ID and uid != OWNER_ID:
@@ -330,7 +332,7 @@ class TelegramBot:
             "🔐 <b>Account Manager</b> – full featured.\nChoose an action:",
             self.main_menu_keyboard())
 
-    # ── توزيع الاستدعاءات (callbacks) ───────────────────────
+
     async def handle_callback(self, cb):
         uid = cb['from']['id']
         if OWNER_ID and uid != OWNER_ID: return
@@ -407,7 +409,7 @@ class TelegramBot:
                 self.user_states[uid] = "2fa_change_old"
                 await self.send_msg(chat_id, "🔑 Send the <b>old</b> 2FA password first:")
 
-    # ── معالجة النصوص (حالات الانتظار) ─────────────────────
+
     async def handle_text(self, msg):
         uid = msg['from']['id']
         if OWNER_ID and uid != OWNER_ID: return
@@ -417,7 +419,7 @@ class TelegramBot:
 
         if not state: return
 
-        # ── API Settings ──────────────────────────────────
+
         if state == "api_id":
             self.user_states[uid] = "api_hash"
             self.db.set_setting("tmp_api_id", text)
@@ -430,7 +432,7 @@ class TelegramBot:
             del self.user_states[uid]
             await self.send_msg(chat_id, f"✅ API saved:\n<code>{api_id}</code>\n<code>{text}</code>", self.main_menu_keyboard())
 
-        # ── 2FA ──────────────────────────────────────────
+
         elif state == "2fa_enable":
             del self.user_states[uid]
             await self.run_2fa(chat_id, "enable", new_pass=text)
@@ -449,7 +451,7 @@ class TelegramBot:
             del self.user_states[uid]
             await self.run_2fa(chat_id, "change", old_pass=old, new_pass=text)
 
-    # ── معالجة المستندات (ZIP) ────────────────────────────
+
     async def handle_document(self, msg):
         uid = msg['from']['id']
         if OWNER_ID and uid != OWNER_ID: return
@@ -499,7 +501,7 @@ class TelegramBot:
         except Exception as e:
             await self.send_msg(msg['chat']['id'], f"❌ Import failed: {e}")
 
-    # ── الوظائف الأساسية ──────────────────────────────────
+
     async def export_zip(self, chat_id):
         sessions = self.db.get_all_sessions()
         if not sessions: return await self.send_msg(chat_id, "❌ No sessions.")
@@ -584,7 +586,7 @@ class TelegramBot:
                     self.db.update_2fa(s["phone"], True, new_pass)
                 done += 1
         await self.edit_msg(chat_id, msg_id, f"✅ 2FA {action}d on {done} accounts.")
-# ── تقارير ──────────────────────────────────────────────────
+
     async def show_years(self, chat_id):
         sessions = self.db.get_all_sessions()
         if not sessions:
@@ -654,7 +656,7 @@ class TelegramBot:
         async with self.session.post(f"{API_URL}/sendDocument", data=form):
             pass
 
-    # ── حلقة التحديثات الرئيسية ────────────────────────────
+    
     async def get_updates(self):
         params = {'offset': self.offset, 'timeout': 30,
                   'allowed_updates': ['message', 'callback_query']}
@@ -707,7 +709,7 @@ class TelegramBot:
         finally:
             await self.session.close()
 
-# ── نقطة البداية ──────────────────────────────────────────
+
 async def main():
     os.makedirs("sessions", exist_ok=True)
     if BOT_TOKEN == "YOUR_BOT_TOKEN_HERE":
