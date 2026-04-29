@@ -159,7 +159,7 @@ OWNER_ID=your_telegram_id   # optional – 0 = anyone
 </p>
 
 ```bash
-python manager.py
+python main.py
 ```
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=4&section=header&text=&fontSize=0" width="100%" /><p align="center"> <img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=70&section=header&text=Usage&fontSize=28&fontColor=ffffff&animation=fadeIn" /> </p>
 Command	Description
