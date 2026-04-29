@@ -20,234 +20,171 @@
 <!-- Neon Divider -->
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=4&section=header&text=&fontSize=0" width="100%" />
 
-<!-- About Section -->
+<!-- About the Bot (Styled) -->
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=70&section=header&text=About%20the%20Bot&fontSize=28&fontColor=ffffff&animation=fadeIn" />
 </p>
 
-<p align="center">
-  <strong style="color: #BD5FFF;">A full‑featured Telegram bot that manages Telegram account sessions.</strong><br/>
-  Check validity, detect country and creation year, apply 2FA, remove other devices, and import/export sessions via ZIP – all from a private chat with the bot. Built with <code>Telethon</code> and <code>getUpdates</code> polling, ready to run locally or on a server.
-</p>
-
-<!-- Features -->
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=70&section=header&text=Key%20Features&fontSize=28&fontColor=ffffff&animation=fadeIn" />
-</p>
-
-- ✅ **Check sessions** – verify if an account is `valid`, `banned`, or `error`  
-- 🔐 **2FA Management** – enable, disable, or change two‑factor passwords in bulk  
-- 🚫 **Remove Devices** – call `auth.resetAuthorizations` to log out all other sessions  
-- 📥 **Import ZIP** – accept `.zip` files containing `.session`, `.telethon`, or `.json` files with session strings  
-- 📤 **Export ZIP** – download all stored sessions as a clean ZIP archive  
-- 💾 **Export Valid JSON** – dump only working sessions into a structured JSON file  
-- 🌍 **Country Detection** – map phone numbers to flags and country names  
-- 📅 **Creation Year** – estimate the account’s creation year from its Telegram ID  
-- 📊 **Stats & Reports** – group sessions by status, year, or country with one tap  
-- 🔄 **Refresh** – re‑check sessions that were previously marked as `invalid`  
-- 🛡️ **Single Owner** – restrict the bot to only one user (`OWNER_ID`)
+<p><strong style="color: #BD5FFF;">🤖 What it does</strong> — Fully manage Telegram sessions: check validity, detect country, estimate creation year, toggle 2FA, remove other devices, and import/export session strings.</p>
+<p><strong style="color: #BD5FFF;">⚡ Built with</strong> — Pure Python, <code>Telethon</code> for MTProto, SQLite for storage, and polling via <code>getUpdates</code>.</p>
+<p><strong style="color: #BD5FFF;">🔐 Security</strong> — Single‑owner mode, local database, no third‑party services.</p>
+<p><strong style="color: #BD5FFF;">📦 Import/Export</strong> — ZIP files with <code>.session</code>, <code>.telethon</code> or <code>.json</code> formats.</p>
+<p><strong style="color: #BD5FFF;">🌍 Reports</strong> — Group accounts by country, creation year, or status with one tap.</p>
+<p><strong style="color: #BD5FFF;">🔗 Source</strong> — <a href="https://github.com/i7rvn" style="color: #FF69B4; text-decoration: none; border-bottom: 1px dotted #AE00FF;">github.com/i7rvn</a></p>
 
 <!-- Neon Divider -->
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=4&section=header&text=&fontSize=0" width="100%" />
 
-<!-- Setup -->
+<!-- Session Stats (Styled Cards like Sample) -->
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=70&section=header&text=Setup%20%26%20Installation&fontSize=28&fontColor=ffffff&animation=fadeIn" />
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=70&section=header&text=Session%20Stats&fontSize=28&fontColor=ffffff&animation=fadeIn" />
 </p>
 
-### Getting Credentials
+<table align="center" style="border-collapse: separate; border-spacing: 20px;">
+  <tr>
+    <td align="center" style="background: rgba(0,0,0,0.6); border-radius: 20px; padding: 20px; border: 1px solid rgba(189,95,255,0.3); box-shadow: 0 15px 35px -5px rgba(138,43,226,0.5); backdrop-filter: blur(4px);">
+      <h3 style="color:#BD5FFF;">📥 Total</h3>
+      <h1 style="color:#ffffff;">...</h1>
+    </td>
+    <td align="center" style="background: rgba(0,0,0,0.6); border-radius: 20px; padding: 20px; border: 1px solid rgba(174,0,255,0.3); box-shadow: 0 15px 35px -5px rgba(138,43,226,0.5); backdrop-filter: blur(4px);">
+      <h3 style="color:#BD5FFF;">✅ Valid</h3>
+      <h1 style="color:#00FF00;">...</h1>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" style="background: rgba(0,0,0,0.6); border-radius: 20px; padding: 20px; border: 1px solid rgba(189,95,255,0.3); box-shadow: 0 15px 35px -5px rgba(138,43,226,0.5); backdrop-filter: blur(4px);">
+      <h3 style="color:#BD5FFF;">❌ Banned</h3>
+      <h1 style="color:#FF0000;">...</h1>
+    </td>
+    <td align="center" style="background: rgba(0,0,0,0.6); border-radius: 20px; padding: 20px; border: 1px solid rgba(174,0,255,0.3); box-shadow: 0 15px 35px -5px rgba(138,43,226,0.5); backdrop-filter: blur(4px);">
+      <h3 style="color:#BD5FFF;">🔐 2FA</h3>
+      <h1 style="color:#FF69B4;">...</h1>
+    </td>
+  </tr>
+</table>
 
-#### Bot Token
-1. Open Telegram and search for [@BotFather](https://t.me/BotFather).
-2. Send `/newbot` and follow the instructions.
-3. Copy the generated **Bot Token**.
-4. Paste it into the `.env` file as `BOT_TOKEN`.
-
-#### API Credentials
-1. Go to [my.telegram.org](https://my.telegram.org/auth) and log in.
-2. Click **API development tools**.
-3. Note your **api_id** and **api_hash**.
-4. Add them to `.env` as `API_ID` and `API_HASH`.
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/i7rvn/telegram-account-manager.git
-   cd telegram-account-manager
-   ```
-
-2. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
-   Required packages: `aiohttp`, `python-dotenv`, `telethon` (SQLite3 is built-in).
-
-3. **Configure environment variables**
-   Copy `.env.example` to `.env` and fill in your credentials:
-   ```ini
-   BOT_TOKEN=123456:ABC-DEF...
-   API_ID=123456
-   API_HASH=your_api_hash_here
-   OWNER_ID=your_user_id   # optional – leave 0 to allow anyone
-   ```
-   > Keep `.env` secure – never commit it to version control.
-
-4. **Run the bot**
-   ```bash
-   python manager.py
-   ```
-   The bot starts polling via `getUpdates`. Logs are written to `telegram_manager.log` and printed to the console.
+<br/>
 
 <!-- Neon Divider -->
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=4&section=header&text=&fontSize=0" width="100%" />
 
-<!-- Usage -->
+<!-- Core Stack and Tools -->
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=70&section=header&text=Usage&fontSize=28&fontColor=ffffff&animation=fadeIn" />
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=70&section=header&text=Core%20Stack%20and%20Tools&fontSize=28&fontColor=ffffff&animation=fadeIn" />
+</p>
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white&labelColor=000000&color=6A0DAD" />
+  <img src="https://img.shields.io/badge/Telethon-26A5E4?style=for-the-badge&logo=telegram&logoColor=white&labelColor=000000&color=BD5FFF" />
+  <img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white&labelColor=000000&color=AE00FF" />
+  <img src="https://img.shields.io/badge/aiohttp-2C5BB4?style=for-the-badge&logo=aiohttp&logoColor=white&labelColor=000000&color=6A0DAD" />
+  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white&labelColor=000000&color=BD5FFF" />
+  <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black&labelColor=000000&color=AE00FF" />
 </p>
 
-### Bot Commands
-
-| Command   | Description |
-|-----------|-------------|
-| `/start`  | Show the main inline menu |
-| `/help`   | Display a short help message |
-
-All other interactions are handled through **inline buttons** in the main menu.
-
-### Inline Menu Options
-
-| Button              | Description |
-|---------------------|-------------|
-| 📥 Import ZIP       | Upload a ZIP file with `.session`, `.telethon`, or `.json` files |
-| 📤 Export ZIP       | Download all stored sessions as a ZIP |
-| ✅ Check Sessions   | Validate every account, detect country, year, and 2FA |
-| 🔄 Refresh          | Re‑check sessions that were previously `invalid` |
-| 🚫 Remove Devices   | Log out all other devices from valid accounts (auth.resetAuthorizations) |
-| 🔐 2FA              | Submenu to enable, disable, or change 2FA passwords |
-| 📅 Years            | List all accounts with their estimated creation year |
-| 🌍 Country          | Group accounts by detected country |
-| 📆 Group by Year    | Group accounts by creation year |
-| 💾 Export JSON      | Download a JSON file containing only `valid` sessions |
-| ⚙️ Set API          | Change the default `api_id` / `api_hash` on the fly |
-| 📊 Stats            | Show total, valid, banned, error, and 2FA counts |
-
-For 2FA operations, the bot guides you step‑by‑step to enter the required passwords.
+<br/>
 
 <!-- Neon Divider -->
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=4&section=header&text=&fontSize=0" width="100%" />
 
-<!-- File Structure -->
+<!-- Languages & Tools Icons (like sample) -->
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=70&section=header&text=File%20Structure&fontSize=28&fontColor=ffffff&animation=fadeIn" />
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=70&section=header&text=Languages%20And%20Tools&fontSize=28&fontColor=ffffff&animation=fadeIn" />
+</p>
+<p align="center">
+  <span style="white-space: nowrap;">
+    <a href="https://www.python.org"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" width="55"/></a>
+    <a href="https://www.sqlite.org/index.html"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sqlite/sqlite-original.svg" width="55"/></a>
+    <a href="https://git-scm.com/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" width="55"/></a>
+    <a href="https://www.linux.org/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" width="55"/></a>
+    <a href="https://github.com/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" width="55"/></a>
+    <a href="https://code.visualstudio.com/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg" width="55"/></a>
+    <a href="https://www.telegram.org/"><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" width="55"/></a>
+  </span>
 </p>
 
-```
-telegram-account-manager/
-├── manager.py                # Main bot script
-├── .env.example              # Example environment variables
-├── requirements.txt          # Python dependencies
-├── README.md                 # This file
-└── sessions/                 # Created automatically at runtime
+<!-- Neon Divider -->
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=4&section=header&text=&fontSize=0" width="100%" />
+
+<!-- Setup & Installation (kept from earlier) -->
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=70&section=header&text=Obtain%20Bot%20Token&fontSize=28&fontColor=ffffff&animation=fadeIn" />
+</p>
+
+1. Open Telegram and talk to [@BotFather](https://t.me/BotFather)
+2. Send `/newbot`, choose a name and username
+3. Copy the token → paste into `.env` as `BOT_TOKEN`
+<!-- Neon Divider -->
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=4&section=header&text=&fontSize=0" width="100%" />
+<p align="center">
+  
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=70&section=header&text=Get%20API%20Credentials&fontSize=28&fontColor=ffffff&animation=fadeIn" />
+</p>
+
+1. Visit [my.telegram.org](https://my.telegram.org/auth) and log in
+2. Go to **API development tools**
+3. Copy **api_id** and **api_hash** → paste into `.env`
+
+<!-- Neon Divider -->
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=4&section=header&text=&fontSize=0" width="100%" />
+<p align="center">
+  
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=70&section=header&text=Installation&fontSize=28&fontColor=ffffff&animation=fadeIn" />
+</p>
+
+```bash
+git clone https://github.com/i7rvn/telegram-account-manager.git
+cd telegram-account-manager
+pip install -r requirements.txt
 ```
 
 <!-- Neon Divider -->
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=4&section=header&text=&fontSize=0" width="100%" />
-
-<!-- Database Schema -->
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=70&section=header&text=Database%20Schema&fontSize=28&fontColor=ffffff&animation=fadeIn" />
+  
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=70&section=header&text=Configure%20.env&fontSize=28&fontColor=ffffff&animation=fadeIn" />
 </p>
 
-All data is stored in an SQLite database (`telegram_manager.db`).
-
-**`sessions` table**
-
-| Column         | Type    | Description |
-|----------------|---------|-------------|
-| `phone`        | TEXT PK | Account phone number |
-| `session_data` | TEXT    | Telethon session string |
-| `session_type` | TEXT    | `telethon` or `json` |
-| `status`       | TEXT    | `valid`, `banned`, `invalid`, `error` |
-| `country`      | TEXT    | Flag + country name |
-| `creation_year`| INTEGER | Estimated creation year |
-| `api_id`       | TEXT    | Custom API ID (if set) |
-| `api_hash`     | TEXT    | Custom API hash (if set) |
-| `has_2fa`      | INTEGER | 1 if 2FA is enabled |
-| `tfa_password` | TEXT    | Stored 2FA password |
-| `added_at`     | TIMESTAMP | Date added |
-| `checked_at`   | TIMESTAMP | Last check timestamp |
-
-**`settings` table**
-
-| Column  | Type    | Description |
-|---------|---------|-------------|
-| `key`   | TEXT PK | Setting name |
-| `value` | TEXT    | Setting value |
-
-**`users` table**
-
-| Column       | Type    | Description |
-|--------------|---------|-------------|
-| `user_id`    | INTEGER PK | Telegram user ID |
-| `username`   | TEXT    | @username |
-| `first_name` | TEXT    | First name |
-| `last_name`  | TEXT    | Last name |
-| `created_at` | TIMESTAMP | First interaction |
+```ini
+BOT_TOKEN=your_bot_token
+API_ID=your_api_id
+API_HASH=your_api_hash
+OWNER_ID=your_telegram_id   # optional – 0 = anyone
+```
 
 <!-- Neon Divider -->
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=4&section=header&text=&fontSize=0" width="100%" />
-
-<!-- Security Notes -->
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=70&section=header&text=Security%20Notes&fontSize=28&fontColor=ffffff&animation=fadeIn" />
+  
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=70&section=header&text=Run&fontSize=28&fontColor=ffffff&animation=fadeIn" />
 </p>
 
-- 🔒 **Never share your `.env` file** – it contains sensitive API credentials and bot tokens.
-- 🛡️ **Restrict access** – set `OWNER_ID` in `.env` to your own Telegram user ID so only you can interact with the bot.
-- 🗄️ **Database protection** – the `telegram_manager.db` file stores session strings; keep it in a safe location and avoid exposing it publicly.
-- 🧹 **2FA passwords** – the bot stores 2FA passwords in plain text inside the database. Only store them if absolutely necessary, and handle the database with care.
-- 🔄 **Use trusted networks** – when running the bot on a server, ensure it is behind a firewall and only accessible to you.
+```bash
+python manager.py
+```
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=4&section=header&text=&fontSize=0" width="100%" /><p align="center"> <img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=70&section=header&text=Usage&fontSize=28&fontColor=ffffff&animation=fadeIn" /> </p>
+Command	Description
+/start	Open the main inline menu
+/help	Quick help text
+All actions are available through the menu: check sessions, manage 2FA, remove devices, import/export ZIP, view reports, and more.
 
 <!-- Neon Divider -->
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=4&section=header&text=&fontSize=0" width="100%" />
-
-<!-- Contributing -->
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=70&section=header&text=Contributing&fontSize=28&fontColor=ffffff&animation=fadeIn" />
+  
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=70&section=header&text=Database%20Security&fontSize=28&fontColor=ffffff&animation=fadeIn" />
 </p>
 
-Contributions are welcome! If you'd like to improve the bot, fix bugs, or add new features:
+📦 SQLite database (telegram_manager.db) – stores sessions, settings, and users.
 
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/amazing-feature`).
-3. Commit your changes (`git commit -m 'Add some amazing feature'`).
-4. Push to the branch (`git push origin feature/amazing-feature`).
-5. Open a Pull Request.
+🔐 All credentials (bot token, API keys, session strings) are kept locally – never sent elsewhere.
 
-Please make sure to update tests and documentation as appropriate.
+🛡️ Owner‑only mode ensures only you can control the bot.
 
-<!-- Neon Divider -->
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=4&section=header&text=&fontSize=0" width="100%" />
+⚠️ 2FA passwords are stored in plain text – handle the database file with care.
 
-<!-- Support Section -->
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=70&section=header&text=Support%20the%20Project&fontSize=28&fontColor=ffffff&animation=fadeIn" />
-</p>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=4&section=header&text=&fontSize=0" width="100%" /><p align="center"> <img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=70&section=header&text=Contributing&fontSize=28&fontColor=ffffff&animation=fadeIn" /> </p>
+Pull requests are welcome!
+Fork → branch → commit → push → open PR.
+For major changes, please open an issue first.
 
-<p align="center">
-  <a href="https://www.buymeacoffee.com/i7rvn">
-    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="Buy Me a Coffee" />
-  </a>
-</p>
-
-<p align="center">
-  If you find this tool useful, consider starring the repo ⭐ or dropping a coffee!<br/>
-  <a href="https://github.com/i7rvn" style="color: #FF69B4;">@i7rvn</a> – all feedback and contributions are welcome.
-</p>
-
-<!-- Footer Wave -->
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:000000,50:3b1d78,100:ff4fd8&height=160&section=footer" alt="Footer Wave" />
-</p>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=4&section=header&text=&fontSize=0" width="100%" /><p align="center"> <img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=70&section=header&text=Support%20My%20Work&fontSize=28&fontColor=ffffff&animation=fadeIn" /> </p><p align="center"> <a href="https://www.buymeacoffee.com/i7rvn"> <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="i7rvn" /> </a> </p><p align="center"> ⭐ Star the repo if you find it useful!<br/> <a href="https://github.com/i7rvn" style="color: #FF69B4;">@i7rvn</a> </p><p align="center"> <img src="https://capsule-render.vercel.app/api?type=waving&color=0:000000,50:3b1d78,100:ff4fd8&height=160&section=footer" alt="Footer Wave" /> </p>
