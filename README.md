@@ -14,8 +14,6 @@
   <img src="https://img.shields.io/badge/DB-SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white&labelColor=000000&color=AE00FF" />
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge&logo=github&logoColor=white&labelColor=000000&color=6A0DAD" />
   <img src="https://img.shields.io/badge/Status-Active-brightgreen?style=for-the-badge&logo=statuspal&logoColor=white&labelColor=000000&color=BD5FFF" />
-  <img src="https://komarev.com/ghpvc/?username=i7rvn&label=Profile%20Views&color=AE00FF&style=for-the-badge&abbreviated=true" />
-</p>
 
 <!-- Neon Divider -->
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,50:3b1d78,100:ff4fd8&height=4&section=header&text=&fontSize=0" width="100%" />
